@@ -13,7 +13,7 @@ document.getElementById("borrowForm").addEventListener("submit", async (e) => {
 
   try {
     // Send JSON data to the Borrowing System API
-    const response = await fetch("https://borrowing-api.onrender.com", {
+    const response = await fetch("https://borrowing-api.onrender.com/borrow", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
