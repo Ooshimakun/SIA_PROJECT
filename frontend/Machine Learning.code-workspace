@@ -1,0 +1,13 @@
+{
+  "folders": [
+    {
+      "path": "../../Machine Learning",
+    },
+    {
+      "path": "..",
+    },
+  ],
+  "settings": {
+    "liveServer.settings.multiRootWorkspaceName": "SIA_PROJECT",
+  },
+}

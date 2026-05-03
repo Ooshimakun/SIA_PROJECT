@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Enterprise Integration | Library</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>LIBRARY MANAGEMENT SYSTEM</h1>
+      <p>Trigger the system workflow below.</p>
+
+      <form id="borrowForm">
+        <div class="form-group">
+          <label for="studentId">Student ID</label>
+          <input
+            type="text"
+            id="studentId"
+            placeholder="e.g., 2024-001"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="bookId">Book ID</label>
+          <input
+            type="text"
+            id="bookId"
+            placeholder="Available: 101, 102, 103"
+            required
+          />
+        </div>
+        <button type="submit">Execute Request</button>
+      </form>
+
+      <div id="responseContainer" class="hidden">
+        <h3>Workflow Output</h3>
+        <pre id="outputLog"></pre>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
