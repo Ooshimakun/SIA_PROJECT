@@ -3,59 +3,47 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Enterprise Integration | Library</title>
+    <title>Nexus | Library Core</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="texture-overlay"></div>
-
-    <nav class="top-nav">
-      <div class="brand">SIA <span>//</span> Microservice Architecture</div>
-      <div class="status"><span class="pulse"></span> System Online</div>
-    </nav>
-
-    <main class="dashboard">
-      <aside class="sidebar">
-        <h2>System Catalog</h2>
-        <p class="subtext">Available inventory for microservice testing.</p>
-
-        <ul class="book-list">
-          <li>
-            <div class="book-id">ID: 101</div>
-            <div class="book-title">Data Structures in Python</div>
-          </li>
-          <li>
-            <div class="book-id">ID: 102</div>
-            <div class="book-title">Enterprise Architecture</div>
-          </li>
-          <li>
-            <div class="book-id">ID: 103</div>
-            <div class="book-title">Cloud Computing Concepts</div>
-          </li>
-          <li>
-            <div class="book-id">ID: 104</div>
-            <div class="book-title">Machine Learning Basics</div>
-          </li>
-        </ul>
-
-        <div class="info-box">
-          <strong>Workflow Info:</strong>
-          <p>
-            This interface triggers a distributed workflow across the Borrowing,
-            Catalog, and Notification APIs.
-          </p>
+    <div class="cyber-container">
+      <header class="cyber-header">
+        <div class="logo">NEXUS<span>_CORE</span></div>
+        <div class="status-indicator">
+          <div class="dot"></div>
+          <span>SYSTEM ONLINE</span>
         </div>
-      </aside>
+      </header>
 
-      <section class="form-section">
-        <div class="card">
-          <div class="card-header">
-            <h1>Execute Transaction</h1>
+      <main class="grid-layout">
+        <aside class="glass-panel">
+          <h2>DATABASE // CATALOG</h2>
+          <div class="catalog-grid">
+            <div class="catalog-item">
+              <span class="id">101</span>
+              <span class="title">Data Structures</span>
+            </div>
+            <div class="catalog-item">
+              <span class="id">102</span>
+              <span class="title">Enterprise Arch</span>
+            </div>
+            <div class="catalog-item">
+              <span class="id">103</span>
+              <span class="title">Cloud Concepts</span>
+            </div>
+            <div class="catalog-item">
+              <span class="id">104</span>
+              <span class="title">Machine Learning</span>
+            </div>
           </div>
+        </aside>
 
+        <section class="glass-panel main-panel">
+          <h2>INITIALIZE TRANSACTION</h2>
           <form id="borrowForm">
-            <div class="form-group">
-              <label for="studentId">Student ID</label>
+            <div class="input-group">
+              <label for="studentId">AUTHORIZATION ID</label>
               <input
                 type="text"
                 id="studentId"
@@ -63,28 +51,27 @@
                 required
               />
             </div>
-            <div class="form-group">
-              <label for="bookId">Target Book ID</label>
+            <div class="input-group">
+              <label for="bookId">ASSET ID</label>
               <input
                 type="text"
                 id="bookId"
-                placeholder="Enter a valid ID from the catalog"
+                placeholder="Enter Catalog ID"
                 required
               />
             </div>
-            <button type="submit">Initialize Request</button>
+            <button type="submit" class="cyber-btn">EXECUTE_PROTOCOL</button>
           </form>
 
           <div id="responseContainer" class="hidden">
-            <div class="terminal-header">
-              <span>System Output</span>
+            <div class="terminal-bar">
+              <span>> TERMINAL_OUTPUT</span>
             </div>
-            <pre id="outputLog"></pre>
+            <div id="outputLog" class="terminal-body"></div>
           </div>
-        </div>
-      </section>
-    </main>
-
+        </section>
+      </main>
+    </div>
     <script src="app.js"></script>
   </body>
 </html>

@@ -8,8 +8,7 @@ document.getElementById("borrowForm").addEventListener("submit", async (e) => {
 
   // Reveal container and set loading state
   responseContainer.classList.remove("hidden");
-  outputLog.textContent = "Authenticating and communicating with systems...";
-  outputLog.style.color = "#4a5568";
+  outputLog.innerHTML = `<span style="color: var(--text-muted);">[System] Authenticating and communicating with network...</span>`;
 
   try {
     // Send JSON data to the Borrowing System API
@@ -27,15 +26,27 @@ document.getElementById("borrowForm").addEventListener("submit", async (e) => {
     const data = await response.json();
 
     if (!response.ok) {
-      throw new Error(data.error || "Enterprise workflow failed.");
+      throw new Error(data.error || "Network connection failed");
     }
 
-    // On success, print the JSON output
-    outputLog.textContent = JSON.stringify(data, null, 2);
-    outputLog.style.color = "#2f855a"; // Green for success
+    // --- USER FRIENDLY SUCCESS OUTPUT ---
+    // This replaces the raw JSON {} with a clean text readout
+    outputLog.innerHTML = `
+      <div style="color: var(--success-green); margin-bottom: 8px; font-weight: bold;">✔ Transaction Successful</div>
+      <div><strong>Authorized User:</strong> ${studentId}</div>
+      <div><strong>Asset ID:</strong> ${bookId}</div>
+      <div style="margin-top: 12px; color: var(--text-muted); font-size: 0.85em; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 8px;">
+        Status: Inventory synced and transaction logged securely.
+      </div>
+    `;
   } catch (error) {
-    // On failure (e.g., out of stock), print the error
-    outputLog.textContent = `Integration Error: ${error.message}`;
-    outputLog.style.color = "#c53030"; // Red for error
+    // --- USER FRIENDLY ERROR OUTPUT ---
+    outputLog.innerHTML = `
+      <div style="color: var(--error-red); margin-bottom: 8px; font-weight: bold;">✖ Transaction Failed</div>
+      <div><strong>System Error:</strong> ${error.message}</div>
+      <div style="margin-top: 12px; color: var(--text-muted); font-size: 0.85em; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 8px;">
+        Please verify asset availability in the catalog before retrying.
+      </div>
+    `;
   }
 });
