@@ -227,3 +227,20 @@ input:focus {
     grid-template-columns: 1fr;
   }
 }
+.loading-text {
+  color: var(--accent-cyan);
+  font-size: 0.85rem;
+  font-family: monospace;
+  animation: pulse-text 1.5s infinite;
+  padding: 10px;
+}
+
+@keyframes pulse-text {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}

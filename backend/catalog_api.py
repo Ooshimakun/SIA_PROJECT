@@ -1,6 +1,7 @@
 import os
 from flask import Flask, request, jsonify
 from dotenv import load_dotenv
+from flask_cors import CORS
 import requests
 
 load_dotenv()
@@ -44,6 +45,16 @@ def update_stock():
         return jsonify({"status": "success", "book_title": book["title"]}), 200
     else:
         return jsonify({"status": "error", "message": f"'{book['title']}' is currently out of stock."}), 400
+    
+@app.route('/books', methods=['GET'])
+def get_all_books():
+    headers = {
+        "apikey": SUPABASE_KEY,
+        "Authorization": f"Bearer {SUPABASE_KEY}"
+    }
+    # This securely asks Supabase for all books and sends them to your frontend
+    response = requests.get(f"{SUPABASE_URL}/rest/v1/books?select=*", headers=headers)
+    return jsonify(response.json()), response.status_code
 
 if __name__ == '__main__':
     app.run(port=5002, debug=True)

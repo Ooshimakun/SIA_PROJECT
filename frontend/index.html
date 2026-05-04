@@ -3,39 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nexus | Library Core</title>
+    <title>Library Management System</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div class="cyber-container">
       <header class="cyber-header">
-        <div class="logo">NEXUS<span>_CORE</span></div>
-        <div class="status-indicator">
-          <div class="dot"></div>
-          <span>SYSTEM ONLINE</span>
-        </div>
+        <div class="logo">LIBRARY <span>MANAGEMENT SYSTEM</span></div>
       </header>
 
       <main class="grid-layout">
         <aside class="glass-panel">
           <h2>DATABASE // CATALOG</h2>
-          <div class="catalog-grid">
-            <div class="catalog-item">
-              <span class="id">101</span>
-              <span class="title">Data Structures</span>
-            </div>
-            <div class="catalog-item">
-              <span class="id">102</span>
-              <span class="title">Enterprise Arch</span>
-            </div>
-            <div class="catalog-item">
-              <span class="id">103</span>
-              <span class="title">Cloud Concepts</span>
-            </div>
-            <div class="catalog-item">
-              <span class="id">104</span>
-              <span class="title">Machine Learning</span>
-            </div>
+          <div class="catalog-grid" id="catalogList">
+            <div class="loading-text">Fetching live database...</div>
           </div>
         </aside>
 
@@ -60,7 +41,7 @@
                 required
               />
             </div>
-            <button type="submit" class="cyber-btn">EXECUTE_PROTOCOL</button>
+            <button type="submit" class="cyber-btn">EXECUTE REQUEST</button>
           </form>
 
           <div id="responseContainer" class="hidden">
