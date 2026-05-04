@@ -6,6 +6,7 @@ import requests
 
 load_dotenv()
 app = Flask(__name__)
+CORS(app)
 
 SUPABASE_URL = os.getenv("SUPABASE_URL")
 SUPABASE_KEY = os.getenv("SUPABASE_KEY")
